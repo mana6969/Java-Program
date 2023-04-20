@@ -6,9 +6,9 @@ class Bank
     String A_Type;
     Double Amount;
     double A,W;
+    Scanner s = new Scanner(System.in);
     public void Input()
     {
-        Scanner s = new Scanner(System.in);
         System.out.println("Enter Name of Depositor:");
         D_Name = s.nextLine();
         System.out.println("Enter Account Number:");
@@ -21,7 +21,6 @@ class Bank
     }
     public void Deposit()
     {
-        Scanner s = new Scanner(System.in);
         System.out.println("Enter Amount for Deposite:");
         double A = s.nextDouble();
         Amount = Amount + A;
@@ -29,10 +28,15 @@ class Bank
     }
     public void Withdraw()
     {
-        Scanner s = new Scanner(System.in);
         System.out.println("Enter Withdraw Amount:");
         double W = s.nextDouble();
-        Amount = Amount - W;
+        if(W>Amount)
+        System.out.println("Insufficient Fund");
+        else
+        {
+            Amount = Amount - W;
+            System.out.println("Withdraw Successful");
+        }
     }
     public void Balance()
     {
